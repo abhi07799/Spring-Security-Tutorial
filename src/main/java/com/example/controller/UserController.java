@@ -3,6 +3,7 @@ package com.example.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,12 +27,14 @@ public class UserController
 		return "JAI SHREE RAM";
 	}
 	
+	@PreAuthorize("hasRole('USER')")  /*<-- if we want to provide role based authentication by in memory authentication then first uncomment this annotation and than go to SpringSecurityConfig.java and follow next steps*/
 	@GetMapping("user/test")
 	public String test2()
 	{
 		return "JAI BAJRANG BALI";
 	}
 	
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("admin/test")
 	public String test3()
 	{
