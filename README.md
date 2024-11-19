@@ -1,3 +1,3 @@
 # Spring-Security-Tutorial
 
-JWT-Authentication practice project
+JWT-Authentication & Authorization practice project
